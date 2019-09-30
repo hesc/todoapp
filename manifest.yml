@@ -1,0 +1,7 @@
+---
+applications:
+- name: persref
+  memory: 1G
+  random-route: true
+  path: build/libs/persref-0.0.1.jar
+

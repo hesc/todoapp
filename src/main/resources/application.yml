@@ -1,0 +1,29 @@
+spring:
+  jpa:
+    generate-ddl: true
+
+
+
+
+---
+spring:
+  profiles: mariadb-local
+  datasource:
+    url: "jdbc:mysql://localhost/persref"
+    driver-class-name: com.mysql.jdbc.Driver
+    username:
+    password:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+
+
+---
+spring:
+  profiles: cloud
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect

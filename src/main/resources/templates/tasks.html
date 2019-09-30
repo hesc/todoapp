@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="../../public/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/3.2.1/jquery.min.js"
+            th:src="@{/webjars/jquery/3.2.1/jquery.min.js}"></script>
+
+    <title>
+        task
+    </title>
+
+</head>
+<body>
+<div th:replace="~{fragments/header :: header}">Header</div>
+<div class="container">
+    <div class="text-left" th:if="${not #lists.isEmpty(tasks)}">
+        
+        <div class="lead">
+            <table class="table table-striped">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Desc</th>
+                    <th>State</th>
+                    <th>Created</th>
+                    <th>Due</th>
+                    <th>Done</th>
+                </tr>
+                <tr th:each="task : ${tasks}">
+                    <td><a th:text="${task.id}" th:href="${ '/tasks/' + task.id}"></a></td>
+                    <td th:text="${task.name}">name</td>
+                    <td th:text="${task.description}">desc</td>
+                    <td th:text="${task.state}">state</td>
+                    <td th:text="${task.created}">created</td>
+                    <td th:text="${task.due}">due</td>
+                    <td th:text="${task.done}">done</td>
+                </tr>
+            </table>
+        </div>
+
+        <div th:insert="~{fragments/footer :: footer}"></div>
+    </div>
+</div>
+
+</body>
+</html>
