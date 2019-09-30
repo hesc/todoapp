@@ -1,5 +1,7 @@
 package com.hesc.todoapp.entities;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -23,9 +25,13 @@ public class Task implements Serializable {
     private String description;
     private TaskState state;
     private Integer prio;
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private LocalDate created;
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private LocalDate due;
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private LocalDate done;
+
 
     @Override
     public boolean equals(Object o) {
